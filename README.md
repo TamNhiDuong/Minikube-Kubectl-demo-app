@@ -59,3 +59,9 @@ Modify the deployment config file, then apply the change:
 cd ..
 kubectl apply -f k8s/minikube-demo-server-deployment.yaml
 ```
+
+# Roll back deployment
+
+```sh
+kubectl rollout undo deployment.apps/minikube-demo-server-deployment
+```
