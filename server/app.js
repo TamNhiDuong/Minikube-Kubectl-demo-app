@@ -7,6 +7,6 @@ const app = new Hono();
 app.use("/*", cors());
 app.use("/*", logger());
 
-app.get("/", (c) => c.json({ message: "Hello from Minikube!" }));
+app.get("/", (c) => c.json({ message: "Hello world!" }));
 
 export default app;

@@ -65,3 +65,31 @@ kubectl apply -f k8s/minikube-demo-server-deployment.yaml
 ```sh
 kubectl rollout undo deployment.apps/minikube-demo-server-deployment
 ```
+
+# Cleaning up
+
+Find replicaset
+
+```sh
+kubectl get all
+```
+
+Delete a replicaset
+
+```sh
+kubectl delete replicaset.apps/minikube-demo-server-deployment-86f655dfd5
+```
+
+Delete Docker image that is not used:
+
+```sh
+minikube image rm docker.io/library/minikube-demo-server:1.1
+minikube image ls
+```
+
+Delete the service and deployment:
+
+```sh
+kubectl delete -f k8s/minikube-demo-server-service.yaml,k8s/minikube-demo-server-deployment.yaml
+``
+```
