@@ -43,3 +43,19 @@ Get the external IP address of the service
 minikube service minikube-demo-server-service --url
 curl http://192.168.49.2:32531
 ```
+
+# Steps to update deployment
+
+Update server/app.js, then rebuild image with
+
+```sh
+cd server
+minikube image build -t minikube-demo-server:1.1 .
+```
+
+Modify the deployment config file, then apply the change:
+
+```sh
+cd ..
+kubectl apply -f k8s/minikube-demo-server-deployment.yaml
+```
