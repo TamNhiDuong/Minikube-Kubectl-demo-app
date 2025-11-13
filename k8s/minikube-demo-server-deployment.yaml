@@ -23,3 +23,5 @@ spec:
           envFrom:
             - configMapRef:
                 name: minikube-demo-configmap
+            - secretRef:
+                name: minikube-demo-secret

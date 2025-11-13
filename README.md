@@ -103,3 +103,10 @@ Login to a pod to check env (use kubectl get pods to get the exact pod name)
 kubectl exec -it minikube-demo-server-deployment-55f4fc7b57-62fmv -- /bin/sh
 env
 ```
+
+Encode before storing secrets (optional)
+
+```sh
+echo -n 'newsupersecretusername' | base64
+echo -n 'newsupersecretpassword' | base64
+```
