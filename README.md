@@ -110,3 +110,25 @@ Encode before storing secrets (optional)
 echo -n 'newsupersecretusername' | base64
 echo -n 'newsupersecretpassword' | base64
 ```
+
+# Persistent storage
+
+Get persistent volume
+
+```sh
+kubectl get pv
+```
+
+Get persistent valume claim
+
+```sh
+kubectl get pvc
+```
+
+Exec into the pod to check the directory (/app/data) which is backed by the PersistentVolumeClaim
+
+```sh
+kubectl get pods
+kubectl exec -it [my-pod-name] -- /bin/sh
+ls -lt
+```

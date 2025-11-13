@@ -25,3 +25,10 @@ spec:
                 name: minikube-demo-configmap
             - secretRef:
                 name: minikube-demo-secret
+          volumeMounts:
+            - name: data-storage
+              mountPath: "/app/data"
+      volumes:
+        - name: data-storage
+          persistentVolumeClaim:
+            claimName: minikube-demo-local-persistentvolume-claim
