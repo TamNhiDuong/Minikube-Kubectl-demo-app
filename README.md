@@ -9,6 +9,7 @@ deno run --allow-env --allow-net --unstable --watch app-run.js
 Built an image for Minikube:
 
 ```sh
+cd server
 minikube image build -t minikube-demo-server:1.0 .
 ```
 
@@ -92,4 +93,13 @@ Delete the service and deployment:
 ```sh
 kubectl delete -f k8s/minikube-demo-server-service.yaml,k8s/minikube-demo-server-deployment.yaml
 ``
+```
+
+# Config vars
+
+Login to a pod to check env (use kubectl get pods to get the exact pod name)
+
+```sh
+kubectl exec -it minikube-demo-server-deployment-55f4fc7b57-62fmv -- /bin/sh
+env
 ```

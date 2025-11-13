@@ -4,11 +4,16 @@ import { logger } from "@hono/hono/logger";
 
 const app = new Hono();
 
-const message = Deno.env.get("WELCOME_MESSAGE") || "Hello world!";
-
 app.use("/*", cors());
 app.use("/*", logger());
 
-app.get("/", (c) => c.json({ message }));
+app.get("/", async (c) => {
+    const res = await fetch("http://minikube-demo-server-service:8000");
+    const data = await res.json();
+
+    return c.json({
+        message: `Fetched: ${data.message}`,
+    });
+});
 
 export default app;
